@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SGPA / CGPA Predictor</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#eef2ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+.container{
+    background:#fff;
+    padding:25px;
+    width:980px;
+    border-radius:10px;
+    box-shadow:0 0 12px rgba(0,0,0,0.15);
+}
+h2{text-align:center;}
+.controls{text-align:center;margin-bottom:15px;}
+select{padding:6px;font-size:15px;}
+.semester{margin-top:10px;}
+.subjects{margin-top:15px;}
+.subject{margin-bottom:6px;}
+button{
+    padding:8px 18px;
+    background:#2c7be5;
+    color:#fff;
+    border:none;
+    border-radius:5px;
+    font-size:15px;
+    cursor:pointer;
+    display:block;
+    margin:15px auto;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+table,th,td{border:1px solid #999;}
+th,td{padding:8px;text-align:center;}
+th{background:#dbe4ff;}
+input{width:90px;padding:4px;}
+.result{
+    margin-top:15px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:green;
+}
+#calcBtn{display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>SGPA / CGPA Predictor</h2>
+
+<div class="controls">
+<label><b>Select Branch:</b></label>
+<select id="branch" onchange="resetAll()">
+<option value="">-- Select Branch --</option>
+<option value="IT">Information Technology</option>
+<option value="CE">Computer Engineering</option>
+<option value="CER">Computer Engineering (Regional)</option>
+<option value="ME">Mechanical Engineering</option>
+<option value="CEV">Civil Engineering</option>
+<option value="ENTC">Electronics & Telecommunication</option>
+<option value="AIML">CSE (AI & ML)</option>
+</select>
+
+<div class="semester">
+<label><input type="checkbox" id="sem1" onclick="loadSubjects()"> Semester 1</label>
+&nbsp;&nbsp;
+<label><input type="checkbox" id="sem2" onclick="loadSubjects()"> Semester 2</label>
+</div>
+</div>
+
+<div id="subjectsContainer" class="subjects"></div>
+
+<button onclick="generateTable()">Done</button>
+
+<div id="tableContainer"></div>
+
+<button id="calcBtn" onclick="calculateResult()"></button>
+
+<div id="result" class="result"></div>
+</div>
+
+<script>
+/* ================= SUBJECT DATA ================= */
+
+const itSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"DELD (2 credits)","DELD Laboratory (2 credits)","Python Programming Laboratory (2 credits)","Discrete Mathematics (3 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const itSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Principles of Programming Languages (3 credits)","Programming Laboratory (2 credits)",
+"Data Communication (2 credits)","Web Development Laboratory (2 credits)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const ceSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Computer Programming & Problem Solving (3 credits)",
+"Computer Programming & Problem Solving Laboratory 1 (2 credits)",
+"Digital Electronics & Computer Organization (3 credits)",
+"Digital Electronics Laboratory (1 credit)","Language (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const ceSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Object Oriented Programming (3 credits)","Object Oriented Programming Laboratory (2 credits)",
+"Discrete Mathematics (2 credits)",
+"Computer Programming & Problem Solving Laboratory 2 (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const cerSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Computer Programming & Problem Solving (3 credits)",
+"Digital Electronics & Computer Organization (3 credits)",
+"Digital Electronics Laboratory (1 credit)",
+"Computer Programming and Problem Solving Laboratory 1 (2 credits)",
+"Language (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const cerSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Object Oriented Programming (3 credits)","Object Oriented Programming Laboratory (2 credits)",
+"Discrete Mathematics (2 credits)",
+"Computer Programming and Problem Solving Laboratory 2 (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const meSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)",
+"Engineering Mechanics (3 credits)","Manufacturing Technology (2 credits)",
+"Engineering Graphics Laboratory (2 credits)","Workshop Practice 1 (1 credit)",
+"Programming & Practice Solving Laboratory 1 (1 credit)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const meSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Engineering Thermodynamics (3 credits)","Engineering Thermodynamics Laboratory (1 credit)",
+"Fundamentals of Electromechanical Systems (2 credits)",
+"Fundamentals of Electromechanical Systems Laboratory (1 credit)",
+"Workshop Practice 2 (1 credit)",
+"Programming & Practice Solving Laboratory 2 (1 credit)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const civilSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Engineering Mechanics (3 credits)","Engineering Mechanics Laboratory (1 credit)",
+"Elements of Civil Engineering (3 credits)",
+"Building Drawing & Professional Practices in Civil Engineering Laboratory (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const civilSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Engineering Geology & Materials in Construction (3 credits)",
+"Engineering Geology & Materials in Construction Laboratory (1 credit)",
+"Computer Programming for Problem Solving Laboratory (1 credit)",
+"Surveying (2 credits)","Professional Practices in Surveying (2 credits)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const entcSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)",
+"Basic Electrical & Electronics Engineering (3 credits)",
+"Basic Electrical & Electronics Engineering Laboratory (1 credit)",
+"Programming for Problem Solving (2 credits)",
+"Programming for Problem Solving Laboratory (1 credit)",
+"Electrical & Electronics Maintenance (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skill 1 (2 credits)"
+];
+
+const entcSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Digital Systems (3 credits)","Digital Systems Laboratory (2 credits)",
+"Network Theory (2 credits)",
+"Problem Solving with Python Programming (2 credits)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+
+/* AIML */
+const aimlSem1=[
+"LAUC (2 credits)","LAUC Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)",
+"Discrete Mathematics (3 credits)",
+"Computer Organization & Operating Systems (3 credits)",
+"Computer Organization & Operating Systems Laboratory (1 credit)",
+"C Programming (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+
+const aimlSem2=[
+"Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Data Science (3 credits)","Data Science Laboratory (2 credits)",
+"Software Engineering (2 credits)",
+"Object Oriented Programming using C++ (2 credits)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+
+const subjectData={
+IT:{1:itSem1,2:itSem2},
+CE:{1:ceSem1,2:ceSem2},
+CER:{1:cerSem1,2:cerSem2},
+ME:{1:meSem1,2:meSem2},
+CEV:{1:civilSem1,2:civilSem2},
+ENTC:{1:entcSem1,2:entcSem2},
+AIML:{1:aimlSem1,2:aimlSem2}
+};
+
+const gradePoints={O:10,"A+":9,A:8,"B+":7,B:6,C:5};
+
+/* ================= FUNCTIONS ================= */
+
+function resetAll(){
+subjectsContainer.innerHTML="";
+tableContainer.innerHTML="";
+calcBtn.style.display="none";
+result.innerHTML="";
+sem1.checked=false;
+sem2.checked=false;
+}
+
+function loadSubjects(){
+const branch=document.getElementById("branch").value;
+if(!branch){
+alert("Please select branch first");
+sem1.checked=false;
+sem2.checked=false;
+return;
+}
+subjectsContainer.innerHTML="";
+if(sem1.checked) addSubjects(branch,1);
+if(sem2.checked) addSubjects(branch,2);
+}
+
+function addSubjects(branch,sem){
+subjectData[branch][sem].forEach(sub=>{
+subjectsContainer.innerHTML+=`
+<div class="subject">
+<label>
+<input type="checkbox" value="Sem ${sem} - ${sub}">
+Sem ${sem} - ${sub}
+</label>
+</div>`;
+});
+}
+
+function generateTable(){
+const selected=document.querySelectorAll('#subjectsContainer input:checked');
+if(!selected.length){alert("Select at least one subject");return;}
+
+let html=`<table>
+<tr><th>Sr</th><th>Subject</th><th>Target Marks</th><th>Target Grade</th></tr>`;
+selected.forEach((s,i)=>{
+html+=`
+<tr>
+<td>${i+1}</td>
+<td>${s.value}</td>
+<td><input type="number" oninput="validateMarks(this); checkFilled()"></td>
+<td><input type="text" oninput="checkFilled()"></td>
+</tr>`;
+});
+tableContainer.innerHTML=html+"</table>";
+}
+
+function validateMarks(input){
+const val=parseFloat(input.value);
+if(isNaN(val)) return;
+if(val<0 || val>100){
+    alert("Please enter marks between 0 and 100.");
+    input.value="";
+}
+}
+
+function checkFilled(){
+const inputs=document.querySelectorAll("table input");
+for(let i of inputs){
+if(!i.value.trim()){calcBtn.style.display="none";return;}
+}
+calcBtn.innerText=(sem1.checked&&sem2.checked)?"Calculate CGPA":"Calculate SGPA";
+calcBtn.style.display="block";
+}
+
+function calculateResult(){
+const rows=document.querySelectorAll("table tr");
+let s1=0,c1=0,s2=0,c2=0;
+
+for(let i=1;i<rows.length;i++){
+let sub=rows[i].cells[1].innerText;
+let grade=rows[i].cells[3].querySelector("input").value.toUpperCase();
+if(!(grade in gradePoints)){alert("Invalid Grade");return;}
+if(sub.startsWith("Sem 1")){s1+=gradePoints[grade];c1++;}
+else{s2+=gradePoints[grade];c2++;}
+}
+
+result.innerHTML=(c1&&c2)?
+`SGPA Sem 1: ${(s1/c1).toFixed(2)}<br>
+SGPA Sem 2: ${(s2/c2).toFixed(2)}<br>
+<b>CGPA: ${((s1/c1+s2/c2)/2).toFixed(2)}</b>`:
+`SGPA: ${((s1+s2)/(c1+c2)).toFixed(2)}`;
+}
+</script>
+
+</body>
+</html>
