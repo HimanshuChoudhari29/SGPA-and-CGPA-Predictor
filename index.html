@@ -5,8 +5,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Virtual Lab – SGPA & CGPA Predictor</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -54,7 +54,6 @@ display:flex;flex-wrap:wrap
 padding:14px 18px;
 cursor:pointer;
 border-bottom:3px solid transparent;
-display:flex;gap:8px;align-items:center;
 font-size:15px
 }
 .tab-item:hover,
@@ -73,21 +72,34 @@ background:#fff;border-radius:8px;
 box-shadow:0 4px 8px rgba(0,0,0,.05);
 padding:30px
 }
-.content-header{
-border-bottom:1px solid #eee;
-margin-bottom:20px;padding-bottom:15px
-}
-.content-header h2{font-size:28px}
 .section-content{
 background:#f8f9fa;
 border-left:5px solid #3498db;
 border-radius:8px;
-padding:25px;
-animation:fadeIn .3s ease-in-out
+padding:25px
 }
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(5px)}
-to{opacity:1;transform:translateY(0)}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px
+}
+th,td{
+border:1px solid #ccc;
+padding:10px;
+text-align:center
+}
+th{
+background:#3498db;
+color:white
+}
+.profile-img{
+width:80px;
+height:100px;
+object-fit:cover;
+border-radius:6px;
+border:1px solid #ccc
 }
 
 /* SIMULATION */
@@ -96,8 +108,7 @@ width:100%;
 height:420px;
 border:1px solid #ccc;
 border-radius:8px;
-overflow:hidden;
-background:#fff
+overflow:hidden
 }
 .simulation-box iframe{
 width:100%;
@@ -134,26 +145,20 @@ color:#7f8c8d
 </div>
 </header>
 
-<!-- TABS -->
 <div class="tab-bar">
 <div class="tab-container">
-<div class="tab-item active" data-key="Aim"><i class="fas fa-bullseye"></i>Aim</div>
-<div class="tab-item" data-key="Theory"><i class="fas fa-book"></i>Theory</div>
-<div class="tab-item" data-key="Pretest"><i class="fas fa-question-circle"></i>Pretest</div>
-<div class="tab-item" data-key="Simulation"><i class="fas fa-desktop"></i>Simulation</div>
-<div class="tab-item" data-key="Posttest"><i class="fas fa-clipboard-check"></i>Posttest</div>
-<div class="tab-item" data-key="References"><i class="fas fa-book-open"></i>References</div>
-<div class="tab-item" data-key="Contributors"><i class="fas fa-users"></i>Contributors</div>
+<div class="tab-item active" data-key="Aim">Aim</div>
+<div class="tab-item" data-key="Theory">Theory</div>
+<div class="tab-item" data-key="Pretest">Pretest</div>
+<div class="tab-item" data-key="Simulation">Simulation</div>
+<div class="tab-item" data-key="Posttest">Posttest</div>
+<div class="tab-item" data-key="References">References</div>
+<div class="tab-item" data-key="Contributors">Contributors</div>
 </div>
 </div>
 
 <div class="main-content">
 <div class="content">
-<div class="content-header">
-<h2>A Virtual Lab on SGPA & CGPA Predictor</h2>
-<p>Academic Performance Analysis Tool</p>
-</div>
-
 <div id="sectionContent" class="section-content"></div>
 </div>
 </div>
@@ -163,8 +168,9 @@ Virtual Labs © 2025 | Applied Sciences & Humanities Department | <b>PCCOE</b>
 </footer>
 
 <script>
-const content={
-"Aim":`
+const content = {
+
+"Aim": `
 <h2>Aim :</h2>
 <p>
 To design and develop an interactive SGPA and CGPA Predictor
@@ -172,59 +178,66 @@ that enables engineering students to plan, analyze, and
 predict their academic performance.
 </p>
 `,
-"Theory":`
+
+"Theory": `
 <h2>Theory :</h2>
-<p>SGPA and CGPA are calculated using credit-weighted grade points
-to evaluate semester-wise and cumulative academic performance.
-<br><br>
-<b>SGPA (Semester Grade Point Average)</b><br>
-SGPA represents the academic performance of a student in a single semester.
 <br>
+<p><b>SGPA (Semester Grade Point Average)</b>
+    <br>
+SGPA represents the academic performance of a student in a single semester. It is calculated as the average of grade points obtained in all subjects of that semester.
+    <br>
+Mathematically:<br>
 SGPA = (Sum of Grade Points of all subjects) / (Number of subjects)
-<br><br>
-<b>CGPA (Cumulative Grade Point Average)</b><br>
-CGPA represents overall academic performance across semesters.
 <br>
+<br>
+<b>CGPA (Cumulative Grade Point Average)</b>
+<br>
+CGPA represents the overall academic performance across multiple semesters. It is calculated as the average of the SGPAs of the selected semesters.
+<br>
+Mathematically (for two semesters):<br>
 CGPA = (SGPA₁ + SGPA₂) / 2
-<br><br>
-<b>Input Constraints</b><br>
-• Targeted Marks must be between 0 and 100.<br>
-• Grade input must belong to the valid grading system.
-<br><br>
-<b>Technologies Used</b><br>
-• HTML<br>
-• CSS<br>
-• JavaScript
-</p>
+<br>
+<br>
+<b>Input Constraints:</b><br>
+<li>Targeted Marks must be between 0 and 100.</li>
+<li>Grade input must belong to the valid grading system.</li>
+<br>
+<b>Technologies Used:</b><br>
+<li>HTML – Structure of the web application</li>
+<li>CSS – Styling and layout</li>
+<li>JavaScript – Logic for subject selection, validation, SGPA/CGPA calculation</li></P>
 `,
-"Pretest":`
+
+"Pretest": `
 <h2>Pretest :</h2>
-<ol>
-<li>What does SGPA represent?<br>
+<p>What does SGPA represent?<br>
 A. Overall academic score<br>
 B. Semester-wise academic performance<br>
 C. Total marks obtained<br>
-D. Attendance percentage
-</li><br>
-<li>Is CGPA cumulative?<br>
+D. Attendance percentage </p>
+<br>
+<p>CGPA is calculated using:<br>
 A. Only first semester marks<br>
 B. Only last semester marks<br>
 C. Average of semester performances<br>
-D. Highest grade obtained
-</li><br>
-<li>Do labs carry credits?<br>
-A. Yes<br>
-B. No
-</li>
-</ol>
+D. Highest grade obtained</p>
+<br>
+<p>Which input is invalid in the predictor?<br>
+A. Marks = 85<br>
+B. Marks = -10<br>
+C. Grade = A<br>
+D. Grade = B+</p>
+<br>
 `,
-"Simulation":`
+
+"Simulation": `
 <h2>SGPA & CGPA Predictor Simulation :</h2>
 <div class="simulation-box">
 <iframe src="sgpa_predictor.html"></iframe>
 </div>
 `,
-"Posttest":`
+
+"Posttest": `
 <h2>Posttest :</h2>
 <p>
 After completing the simulation, the learner should be able to:
@@ -235,42 +248,80 @@ After completing the simulation, the learner should be able to:
 • Avoid invalid data entry
 </p>
 <br>
-<ol>
+<p>Answer the following questions:
+<br>
 <li>How is CGPA calculated?</li>
 <li>Why are credits important?</li>
 <li>How can prediction help students?</li>
-</ol>
+</p>
 `,
-"References":`
+
+"References": `
 <h2>References :</h2>
 <ul>
-<li>Advanced Engineering Mathematics by Erwin Kreyszig, 9<sup>th</sup> Edition, Wiley Eastern Ltd.</li>
-<li>Higher Engineering Mathematics by B. S. Grewal, 43<sup>rd</sup> Edition, Khanna Publication, Delhi</li>
-<li>Engineering Education Resources</li>
+<li>Advanced Engineering Mathematics by Erwin Kreyszig</li>
+<li>Higher Engineering Mathematics by B. S. Grewal</li>
 </ul>
 `,
-"Contributors":`
-<h3>Subject Expert :</h3>
-<li>Prof. Dinesh Kute</li>
+
+"Contributors": `
+<h2>Subject Expert :</h2>
+<table>
+<tr><th>Sr. No.</th><th>Name</th><th>Email ID</th></tr>
+<tr><td>1</td><td>Prof. Dinesh Kute</td><td>dinesh.kute@pccoepune.org</td></tr>
+</table>
+
 <br>
-<h3>Programmers :</h3>
-<ul>
-<li>Choudhari Himanshu Rajendra - 125B1F264</li>
-<li>Anandkar Tanishque Arun - 125B1F267</li>
-<li>Nikam Aditya Suresh - 125B1F268</li>
-<li>Rohom Atharva Anil - 125B1F269</li>
-</ul>
+
+<h2>Programmers :</h2>
+<table>
+<tr>
+<th>PRN No.</th>
+<th>Name</th>
+<th>Email ID</th>
+<th>Photograph</th>
+</tr>
+
+<tr>
+<td>125B1F264</td>
+<td>Choudhari Himanshu Rajendra</td>
+<td>himanshu.choudhari25@pccoepune.org</td>
+<td><img src="WhatsApp Image 2025-12-22 at 1.17.46 AM.jpeg" class="profile-img"></td>
+</tr>
+
+<tr>
+<td>125B1F267</td>
+<td>Anandkar Tanishque Arun</td>
+<td>tanishque.anandkar25@pccoepune.org</td>
+<td><img src="WhatsApp Image 2025-11-08 at 21.51.43_a264a184.jpg" class="profile-img"></td>
+</tr>
+
+<tr>
+<td>125B1F268</td>
+<td>Nikam Aditya Suresh</td>
+<td>aditya.nikam25@pccoepune.org</td>
+<td><img src="WhatsApp Image 2025-11-08 at 18.20.54_5728043c.jpg" class="profile-img"></td>
+</tr>
+
+<tr>
+<td>125B1F269</td>
+<td>Rohom Atharva Anil</td>
+<td>atharva.rohom25@pccoepune.org</td>
+<td><img src="WhatsApp Image 2025-12-22 at 7.31.51 PM.jpeg" class="profile-img"></td>
+</tr>
+
+</table>
 `
 };
 
-const section=document.getElementById("sectionContent");
-section.innerHTML=content["Aim"];
+const section = document.getElementById("sectionContent");
+section.innerHTML = content["Aim"];
 
 document.querySelectorAll(".tab-item").forEach(tab=>{
-tab.onclick=()=>{
+tab.onclick = ()=>{
 document.querySelectorAll(".tab-item").forEach(t=>t.classList.remove("active"));
 tab.classList.add("active");
-section.innerHTML=content[tab.dataset.key];
+section.innerHTML = content[tab.dataset.key];
 };
 });
 </script>
