@@ -11,64 +11,87 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
 body{background:#f8f9fa;color:#333}
 
+/* HEADER */
 header{
 background:linear-gradient(135deg,#2c3e50,#1a2530);
 color:#fff;padding:15px 0
 }
 .header-container{
 max-width:1200px;margin:auto;
-display:flex;justify-content:space-between;align-items:center
+display:flex;align-items:center;gap:25px
 }
-.logo-section{display:flex;gap:25px;align-items:center}
-.pcce-logo-container{display:flex;gap:15px;align-items:center;border-right:2px solid rgba(255,255,255,0.2);padding-right:25px}
-.pcce-logo-img{width:60px;height:60px;background:#fff;padding:5px;border-radius:8px}
+.pcce-logo-container{
+display:flex;gap:15px;align-items:center
+}
+.pcce-logo-img{
+width:60px;height:60px;background:#fff;
+padding:5px;border-radius:8px
+}
 .pcce-logo-text .main{font-size:20px;font-weight:700}
 .pcce-logo-text .sub{font-size:12px;opacity:.9}
-.virtual-labs-logo{display:flex;gap:10px;align-items:center}
+.virtual-labs-logo{
+display:flex;align-items:center;gap:10px;margin-left:auto
+}
 .virtual-labs-logo i{font-size:30px;color:#3498db}
 .virtual-labs-logo h1{font-size:26px}
 .virtual-labs-logo span{color:#3498db}
 
-.main-content{max-width:1200px;margin:30px auto;display:flex;gap:30px}
-.sidebar{
-width:280px;background:#fff;border-radius:8px;
-box-shadow:0 4px 8px rgba(0,0,0,.05);padding:20px 0
+/* TAB BAR */
+.tab-bar{
+background:#ffffff;
+border-bottom:1px solid #ddd
 }
-.nav-menu{list-style:none}
-.nav-item{
-padding:12px 25px;cursor:pointer;
-border-left:4px solid transparent;display:flex;gap:10px
+.tab-container{
+max-width:1200px;margin:auto;
+display:flex;flex-wrap:wrap
 }
-.nav-item:hover,.nav-item.active{
-background:#f0f7ff;border-left-color:#3498db;color:#3498db
+.tab-item{
+padding:14px 18px;
+cursor:pointer;
+border-bottom:3px solid transparent;
+display:flex;gap:8px;align-items:center;
+font-size:15px
+}
+.tab-item:hover,
+.tab-item.active{
+color:#3498db;
+border-bottom-color:#3498db;
+background:#f0f7ff
 }
 
+/* CONTENT */
+.main-content{
+max-width:1200px;margin:30px auto
+}
 .content{
-flex:1;background:#fff;border-radius:8px;
-box-shadow:0 4px 8px rgba(0,0,0,.05);padding:30px
+background:#fff;border-radius:8px;
+box-shadow:0 4px 8px rgba(0,0,0,.05);
+padding:30px
 }
-.content-header{border-bottom:1px solid #eee;padding-bottom:15px;margin-bottom:25px}
+.content-header{
+border-bottom:1px solid #eee;
+margin-bottom:20px;padding-bottom:15px
+}
 .content-header h2{font-size:28px}
-
-.aim-sections{
-display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-gap:20px;margin-bottom:30px
-}
-.section-card{
-background:#f8f9fa;padding:20px;border-radius:8px;
-text-align:center;cursor:pointer;border:2px solid transparent
-}
-.section-card.active,.section-card:hover{
-border-color:#3498db;background:#e8f4fc
-}
-.section-card i{font-size:32px;color:#3498db;margin-bottom:10px}
-
 .section-content{
-background:#f8f9fa;border-radius:8px;
-padding:25px;border-left:5px solid #3498db
+background:#f8f9fa;
+border-left:5px solid #3498db;
+border-radius:8px;
+padding:25px;
+animation:fadeIn .3s ease-in-out
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(5px)}
+to{opacity:1;transform:translateY(0)}
 }
 
-footer{text-align:center;padding:20px;color:#7f8c8d;border-top:1px solid #eee}
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+border-top:1px solid #eee;
+color:#7f8c8d
+}
 </style>
 </head>
 
@@ -76,7 +99,6 @@ footer{text-align:center;padding:20px;color:#7f8c8d;border-top:1px solid #eee}
 
 <header>
 <div class="header-container">
-<div class="logo-section">
 <div class="pcce-logo-container">
 <img src="https://raw.githubusercontent.com/dineshkute90/virtual_lab_LAUC/main/pccoe.png"
 class="pcce-logo-img"
@@ -86,127 +108,119 @@ onerror="this.src='https://via.placeholder.com/60'">
 <div class="sub">Pimpri Chinchwad College of Engineering</div>
 </div>
 </div>
+
 <div class="virtual-labs-logo">
 <i class="fas fa-flask"></i>
 <h1>Virtual <span>Labs</span></h1>
 </div>
 </div>
-</div>
 </header>
 
-<div class="main-content">
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-<ul class="nav-menu">
-<li class="nav-item active"><i class="fas fa-bullseye"></i> Aim</li>
-<li class="nav-item"><i class="fas fa-book"></i> Theory</li>
-<li class="nav-item"><i class="fas fa-question-circle"></i> Pretest</li>
-<li class="nav-item"><i class="fas fa-desktop"></i> Simulation</li>
-<li class="nav-item"><i class="fas fa-clipboard-check"></i> Posttest</li>
-<li class="nav-item"><i class="fas fa-book-open"></i> References</li>
-<li class="nav-item"><i class="fas fa-users"></i> Contributors</li>
-</ul>
+<div class="tab-bar">
+<div class="tab-container">
+<div class="tab-item active" data-key="Aim"><i class="fas fa-bullseye"></i>Aim</div>
+<div class="tab-item" data-key="Theory"><i class="fas fa-book"></i>Theory</div>
+<div class="tab-item" data-key="Pretest"><i class="fas fa-question-circle"></i>Pretest</div>
+<div class="tab-item" data-key="Simulation"><i class="fas fa-desktop"></i>Simulation</div>
+<div class="tab-item" data-key="Posttest"><i class="fas fa-clipboard-check"></i>Posttest</div>
+<div class="tab-item" data-key="References"><i class="fas fa-book-open"></i>References</div>
+<div class="tab-item" data-key="Contributors"><i class="fas fa-users"></i>Contributors</div>
+</div>
 </div>
 
-<!-- CONTENT -->
+<div class="main-content">
 <div class="content">
 <div class="content-header">
 <h2>A Virtual Lab on SGPA & CGPA Predictor</h2>
 <p>Academic Performance Analysis Tool</p>
 </div>
 
-<div id="sectionContent" class="section-content">
-<h3>Aim</h3>
-<p>
-To design and develop an interactive SGPA and CGPA Predictor
-that enables engineering students to plan, analyze, and
-predict their academic performance.
-</p>
-</div>
+<div id="sectionContent" class="section-content"></div>
 </div>
 </div>
 
 <footer>
-Virtual Labs © 2025 | Applied Sciences & Humanities Department |
-<b>PCCOE</b>
+Virtual Labs © 2025 | Applied Sciences & Humanities Department | <b>PCCOE</b>
 </footer>
 
 <script>
 const content={
 "Aim":`
 <h2>Aim :</h2>
-<p>To design and develop an interactive SGPA & CGPA Predictor for academic planning.</p>
+<p>
+To design and develop an interactive SGPA and CGPA Predictor
+that enables engineering students to plan, analyze, and
+predict their academic performance.
+</p>
 `,
 "Theory":`
 <h2>Theory :</h2>
 <p>SGPA and CGPA are calculated using credit-weighted grade points
 to evaluate semester-wise and cumulative academic performance.
-<br>
-<br>
+<br><br>
 <b>SGPA (Semester Grade Point Average)</b>
 SGPA represents the academic performance of a student in a single semester. It is calculated as the average of grade points obtained in all subjects of that semester.<br>
 Mathematically:<br>
 SGPA = (Sum of Grade Points of all subjects) / (Number of subjects)
-<br>
-<br>
+<br><br>
 <b>CGPA (Cumulative Grade Point Average)</b>
 CGPA represents the overall academic performance across multiple semesters. It is calculated as the average of the SGPAs of the selected semesters.<br>
 Mathematically (for two semesters):<br>
 CGPA = (SGPA₁ + SGPA₂) / 2
-<br>
-<br>
+<br><br>
 <b>Input Constraints</b><br>
-•	Targeted Marks must be between 0 and 100.<br>
-•	Grade input must belong to the valid grading system.
-<br>
-<br>
+• Targeted Marks must be between 0 and 100.<br>
+• Grade input must belong to the valid grading system.
+<br><br>
 <b>Technologies Used</b><br>
-•	HTML – Structure of the web application<br>
-•	CSS – Styling and layout<br>
-•	JavaScript – Logic for subject selection, validation, SGPA/CGPA calculation<br>
-
+• HTML – Structure of the web application<br>
+• CSS – Styling and layout<br>
+• JavaScript – Logic for subject selection, validation, SGPA/CGPA calculation<br>
 </p>
 `,
 "Pretest":`
 <h2>Pretest :</h2>
 <ol>
 <li>What does SGPA represent?<br>
-    A. Overall academic score<br>
-    B. Semester-wise academic performance<br>
-    C. Total marks obtained<br>
-    D. Attendance percentage<br>
-</li>
-<br>
+A. Overall academic score<br>
+B. Semester-wise academic performance<br>
+C. Total marks obtained<br>
+D. Attendance percentage<br>
+</li><br>
 <li>Is CGPA cumulative?<br>
-    A. Only first semester marks<br>
-    B. Only last semester marks<br>
-    C. Average of semester performances<br>
-    D. Highest grade obtained<br>
-</li>
-<br>
+A. Only first semester marks<br>
+B. Only last semester marks<br>
+C. Average of semester performances<br>
+D. Highest grade obtained<br>
+</li><br>
 <li>Do labs carry credits?<br>
-    A. Yes<br>
-    B. No<br>
+A. Yes<br>
+B. No<br>
 </li>
 </ol>
 `,
 "Simulation":`
 <h2>SGPA & CGPA Predictor Simulation :</h2>
-<iframe src="sgpa_predictor.html" width="100%" height="900"
-style="border:1px solid #ccc;border-radius:8px"></iframe>
+<iframe src="sgpa_predictor.html"
+        width="100%"
+        height="550"
+        style="border:1px solid #ccc;border-radius:8px;overflow:auto;">
+</iframe>
 `,
 "Posttest":`
 <h2>Posttest :</h2>
 <br>
-<p>After completing the simulation, the learner should be able to:<br>
-•	Understand the concept of SGPA and CGPA<br>
-•	Identify the relationship between grades and grade points<br>
-•	Use academic planning tools effectively<br>
-•	Avoid invalid academic data entry<br>
+<p>
+<br>
+After completing the simulation, the learner should be able to:<br>
+• Understand the concept of SGPA and CGPA<br>
+• Identify the relationship between grades and grade points<br>
+• Use academic planning tools effectively<br>
+• Avoid invalid academic data entry
 </p>
 <br>
 <p>Answer the following questions :</p>
+<br>
 <ol>
 <li>How is CGPA calculated?</li>
 <li>Why are credits important?</li>
@@ -235,11 +249,14 @@ style="border:1px solid #ccc;border-radius:8px"></iframe>
 `
 };
 
-document.querySelectorAll('.nav-item').forEach(item=>{
-item.onclick=()=>{
-document.querySelectorAll('.nav-item').forEach(i=>i.classList.remove('active'));
-item.classList.add('active');
-document.getElementById("sectionContent").innerHTML=content[item.innerText];
+const sectionContent=document.getElementById("sectionContent");
+sectionContent.innerHTML=content["Aim"];
+
+document.querySelectorAll(".tab-item").forEach(tab=>{
+tab.onclick=()=>{
+document.querySelectorAll(".tab-item").forEach(t=>t.classList.remove("active"));
+tab.classList.add("active");
+sectionContent.innerHTML=content[tab.dataset.key];
 };
 });
 </script>
