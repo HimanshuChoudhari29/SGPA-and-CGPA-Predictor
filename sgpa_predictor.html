@@ -94,7 +94,7 @@ input{width:90px;padding:4px;}
 </div>
 
 <script>
-/* ================= SUBJECT DATA ================= */
+/* ================= SUBJECT DATA (UNCHANGED) ================= */
 
 const itSem1=[
 "LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
@@ -201,7 +201,6 @@ const entcSem2=[
 "Language (2 credits)","Life Skills 2 (2 credits)"
 ];
 
-/* AIML */
 const aimlSem1=[
 "LAUC (2 credits)","LAUC Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)",
 "Discrete Mathematics (3 credits)",
@@ -230,7 +229,7 @@ ENTC:{1:entcSem1,2:entcSem2},
 AIML:{1:aimlSem1,2:aimlSem2}
 };
 
-const gradePoints={O:10,"A+":9,A:8,"B+":7,B:6,C:5};
+const gradePoints={O:10,"A+":9,A:8,"B+":7,B:6,"C+":5,C:4,"D+":3,D:2};
 
 /* ================= FUNCTIONS ================= */
 
@@ -274,15 +273,30 @@ if(!selected.length){alert("Select at least one subject");return;}
 
 let html=`<table>
 <tr><th>Sr</th><th>Subject</th><th>Target Marks</th><th>Target Grade</th></tr>`;
+
 selected.forEach((s,i)=>{
 html+=`
 <tr>
 <td>${i+1}</td>
 <td>${s.value}</td>
 <td><input type="number" oninput="validateMarks(this); checkFilled()"></td>
-<td><input type="text" oninput="checkFilled()"></td>
+<td>
+<select onchange="checkFilled()">
+<option value="">--Select--</option>
+<option>O</option>
+<option>A+</option>
+<option>A</option>
+<option>B+</option>
+<option>B</option>
+<option>C+</option>
+<option>C</option>
+<option>D+</option>
+<option>D</option>
+</select>
+</td>
 </tr>`;
 });
+
 tableContainer.innerHTML=html+"</table>";
 }
 
@@ -296,7 +310,7 @@ if(val<0 || val>100){
 }
 
 function checkFilled(){
-const inputs=document.querySelectorAll("table input");
+const inputs=document.querySelectorAll("table input, table select");
 for(let i of inputs){
 if(!i.value.trim()){calcBtn.style.display="none";return;}
 }
@@ -310,7 +324,7 @@ let s1=0,c1=0,s2=0,c2=0;
 
 for(let i=1;i<rows.length;i++){
 let sub=rows[i].cells[1].innerText;
-let grade=rows[i].cells[3].querySelector("input").value.toUpperCase();
+let grade=rows[i].cells[3].querySelector("select").value;
 if(!(grade in gradePoints)){alert("Invalid Grade");return;}
 if(sub.startsWith("Sem 1")){s1+=gradePoints[grade];c1++;}
 else{s2+=gradePoints[grade];c2++;}
