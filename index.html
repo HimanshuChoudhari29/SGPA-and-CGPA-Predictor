@@ -13,7 +13,23 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
-body{background:#f8f9fa;color:#333}
+body{background:#f8f9fa;color:#333;transition:0.3s}
+
+/* DARK MODE */
+body.dark{
+background:#121212;
+color:#eee;
+}
+body.dark .content,
+body.dark .section-content{
+background:#1e1e1e;
+}
+body.dark .tab-bar{
+background:#1a1a1a;
+}
+body.dark table th{
+background:#555;
+}
 
 /* HEADER */
 header{
@@ -33,8 +49,22 @@ padding:5px;border-radius:8px
 }
 .pcce-logo-text .main{font-size:20px;font-weight:700}
 .pcce-logo-text .sub{font-size:12px;opacity:.9}
-.virtual-labs-logo{
+
+/* TOGGLE BUTTON */
+.toggle-btn{
 margin-left:auto;
+margin-right:15px;
+background:#3498db;
+border:none;
+color:white;
+padding:8px 12px;
+border-radius:6px;
+cursor:pointer;
+font-size:14px;
+}
+
+/* VIRTUAL LAB LOGO */
+.virtual-labs-logo{
 display:flex;align-items:center;gap:10px
 }
 .virtual-labs-logo i{font-size:30px;color:#3498db}
@@ -137,6 +167,9 @@ color:#7f8c8d
 <div class="sub">Pimpri Chinchwad College of Engineering</div>
 </div>
 </div>
+
+<!-- 🌙 TOGGLE BUTTON -->
+<button class="toggle-btn" onclick="toggleMode()">🌙 Night</button>
 
 <div class="virtual-labs-logo">
 <i class="fas fa-flask"></i>
@@ -322,6 +355,37 @@ tab.onclick = ()=>{
 document.querySelectorAll(".tab-item").forEach(t=>t.classList.remove("active"));
 tab.classList.add("active");
 section.innerHTML = content[tab.dataset.key];
+};
+});
+
+/* 🌙 TOGGLE SCRIPT */
+function toggleMode(){
+document.body.classList.toggle("dark");
+
+const isDark = document.body.classList.contains("dark");
+const btn = document.querySelector(".toggle-btn");
+btn.innerText = isDark ? "☀️ Day" : "🌙 Night";
+
+/* 🔥 ensure iframe is loaded before sending */
+const iframe = document.querySelector("iframe");
+
+if(iframe && iframe.contentWindow){
+    iframe.contentWindow.postMessage(
+        { mode: isDark ? "dark" : "light" },
+        "*"
+    );
+}
+}
+window.addEventListener("load", () => {
+const iframe = document.querySelector("iframe");
+
+iframe.onload = () => {
+    const isDark = document.body.classList.contains("dark");
+
+    iframe.contentWindow.postMessage(
+        { mode: isDark ? "dark" : "light" },
+        "*"
+    );
 };
 });
 </script>
