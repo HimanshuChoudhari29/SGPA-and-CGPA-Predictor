@@ -341,12 +341,20 @@ let sgpa=(s1+s2)/(c1+c2);
 result.innerHTML=`SGPA: ${sgpa.toFixed(2)}`;
 }
 }
-window.addEventListener("message", (event) => {
-if(event.data.mode === "dark"){
-    document.body.classList.add("dark");
-} else if(event.data.mode === "light"){
-    document.body.classList.remove("dark");
-}
+window.addEventListener("message", function(event) {
+
+    if(event.data.mode === "dark"){
+        document.body.style.background = "#121212";
+        document.body.style.color = "white";
+        document.querySelector(".container").style.background = "#1e1e1e";
+    }
+
+    if(event.data.mode === "light"){
+        document.body.style.background = "#eef2ff";
+        document.body.style.color = "black";
+        document.querySelector(".container").style.background = "#fff";
+    }
+
 });
 </script>
 
