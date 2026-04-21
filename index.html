@@ -354,7 +354,26 @@ document.querySelectorAll(".tab-item").forEach(tab=>{
 tab.onclick = ()=>{
 document.querySelectorAll(".tab-item").forEach(t=>t.classList.remove("active"));
 tab.classList.add("active");
+
 section.innerHTML = content[tab.dataset.key];
+
+/* 🔥 FIX: wait for iframe after Simulation loads */
+if(tab.dataset.key === "Simulation"){
+    setTimeout(() => {
+        const iframe = document.querySelector("iframe");
+
+        if(iframe){
+            iframe.onload = () => {
+                const isDark = document.body.classList.contains("dark");
+
+                iframe.contentWindow.postMessage(
+                    { mode: isDark ? "dark" : "light" },
+                    "*"
+                );
+            };
+        }
+    }, 100); // small delay ensures DOM is updated
+}
 };
 });
 
