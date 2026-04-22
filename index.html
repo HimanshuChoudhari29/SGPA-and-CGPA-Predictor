@@ -144,14 +144,48 @@ Mathematically (for two semesters):<br>
 CGPA = (SGPA₁ + SGPA₂) / 2
 <br>
 <br>
-<b>Input Constraints:</b><br>
-<li>Targeted Marks must be between 0 and 100.</li>
-<li>Grade input must belong to the valid grading system.</li>
 <br>
-<b>Technologies Used:</b><br>
+<p><b>Why to Use the SGPA-CGPA Simulator?</b>
+<br>
+The SGPA-CGPA simulator is designed to help students understand and predict their academic performance in advance. Instead of manually calculating grade points, the simulator provides a quick and accurate way to evaluate results.
+<br><br>
+It helps students:
+<br>
+• Plan their target grades for upcoming exams<br>
+• Understand the impact of each subject on overall SGPA<br>
+• Analyze different academic scenarios (best case / worst case)<br>
+• Track performance improvement over semesters<br>
+</p>
+
+<br>
+
+<p><b>How to Use the Simulator?</b>
+<br>
+The simulator is simple and user-friendly. Follow these steps:
+<br><br>
+1. Select your branch, year, and semester.<br>
+2. Choose the expected or actual grade for each subject from the dropdown.<br>
+3. The corresponding grade points will be automatically assigned.<br>
+4. The system calculates SGPA based on grade points and credits.<br>
+5. For multiple semesters, CGPA is calculated automatically.<br>
+<br>
+The simulator ensures accuracy and reduces manual errors in calculation.
+</p>
+
+<br>
+
+<p><b>Input Constraints:</b><br>
+<li>Grades must be selected from the given options (O, A+, A, B+, B, P, F).</li>
+<li>Each subject must have a valid grade selected.</li>
+</p>
+
+<br>
+
+<p><b>Technologies Used:</b><br>
 <li>HTML – Structure of the web application</li>
 <li>CSS – Styling and layout</li>
-<li>JavaScript – Logic for subject selection, validation, SGPA/CGPA calculation</li></P>
+<li>JavaScript – Logic for calculations and interactivity</li>
+</p>
 `,
 
 "Simulation": `
@@ -163,22 +197,56 @@ CGPA = (SGPA₁ + SGPA₂) / 2
 
 "Posttest": `
 <h2>Posttest :</h2>
-<p>
-After completing the simulation, the learner should be able to:
-<br>
-• Understand SGPA and CGPA<br>
-• Identify grade–grade point relation<br>
-• Use academic planning tools<br>
-• Avoid invalid data entry
-</p>
-<br>
-<p>Answer the following questions:
-<br>
-<li>How is CGPA calculated?</li>
-<li>Why are credits important?</li>
-<li>How can prediction help students?</li>
-</p>
+
+<form id="postQuizForm">
+
+<p>1. What does SGPA measure?</p>
+<label><input type="radio" name="pq1" value="1"> Performance in a single semester</label><br>
+<label><input type="radio" name="pq1" value="0"> Overall academic performance</label><br><br>
+
+<p>2. CGPA is calculated using:</p>
+<label><input type="radio" name="pq2" value="1"> Average of SGPAs</label><br>
+<label><input type="radio" name="pq2" value="0"> Sum of marks</label><br><br>
+
+<p>3. Which grade corresponds to 9 grade points?</p>
+<label><input type="radio" name="pq3" value="1"> A+</label><br>
+<label><input type="radio" name="pq3" value="0"> A</label><br><br>
+
+<p>4. What happens if a student gets 'F' grade?</p>
+<label><input type="radio" name="pq4" value="1"> Fail with 0 grade points</label><br>
+<label><input type="radio" name="pq4" value="0"> Pass with 5 grade points</label><br><br>
+
+<p>5. Why are credits important in SGPA calculation?</p>
+<label><input type="radio" name="pq5" value="1"> They represent subject weightage</label><br>
+<label><input type="radio" name="pq5" value="0"> They represent attendance</label><br><br>
+
+<p>6. What is the maximum grade point possible?</p>
+<label><input type="radio" name="pq6" value="1"> 10</label><br>
+<label><input type="radio" name="pq6" value="0"> 8</label><br><br>
+
+<p>7. SGPA helps students to:</p>
+<label><input type="radio" name="pq7" value="1"> Analyze semester performance</label><br>
+<label><input type="radio" name="pq7" value="0"> Track attendance</label><br><br>
+
+<p>8. CGPA reflects:</p>
+<label><input type="radio" name="pq8" value="1"> Overall academic performance</label><br>
+<label><input type="radio" name="pq8" value="0"> Only one subject performance</label><br><br>
+
+<p>9. Simulator helps in:</p>
+<label><input type="radio" name="pq9" value="1"> Predicting grades and planning</label><br>
+<label><input type="radio" name="pq9" value="0"> Increasing marks automatically</label><br><br>
+
+<p>10. Grade 'B' corresponds to:</p>
+<label><input type="radio" name="pq10" value="1"> 6</label><br>
+<label><input type="radio" name="pq10" value="0"> 7</label><br><br>
+
+<button type="button" onclick="submitPostQuiz()">Submit Test</button>
+
+</form>
+
+<div id="postQuizResult"></div>
 `,
+
 "References": `
 <h2>References :</h2>
 <ul>
@@ -250,6 +318,13 @@ function submitQuiz(){
 let score=0;
 document.querySelectorAll("#quizForm input:checked").forEach(a=>score+=parseInt(a.value));
 document.getElementById("quizResult").innerHTML="Score: "+score+"/8";
+}
+function submitPostQuiz(){
+let score = 0;
+document.querySelectorAll("#postQuizForm input:checked").forEach(a=>{
+    score += parseInt(a.value);
+});
+document.getElementById("postQuizResult").innerHTML = "Your Score: " + score + "/10";
 }
 
 function toggleMode(){
