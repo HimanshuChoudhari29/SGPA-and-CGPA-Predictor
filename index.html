@@ -371,29 +371,31 @@ if(tab.dataset.key === "Simulation"){
                     "*"
                 );
             };
+
+            // ✅ ADD THIS LINE (VERY IMPORTANT)
+            const isDark = document.body.classList.contains("dark");
+            iframe.contentWindow.postMessage(
+                { mode: isDark ? "dark" : "light" },
+                "*"
+            );
         }
-    }, 100); // small delay ensures DOM is updated
+    }, 300);
 }
-};
-});
 
 /* 🌙 TOGGLE SCRIPT */
 function toggleMode(){
-document.body.classList.toggle("dark");
+    document.body.classList.toggle("dark");
 
-const isDark = document.body.classList.contains("dark");
-const btn = document.querySelector(".toggle-btn");
-btn.innerText = isDark ? "☀️ Day" : "🌙 Night";
+    const isDark = document.body.classList.contains("dark");
 
-/* 🔥 ensure iframe is loaded before sending */
-const iframe = document.querySelector("iframe");
+    const iframe = document.querySelector("iframe");
 
-if(iframe && iframe.contentWindow){
-    iframe.contentWindow.postMessage(
-        { mode: isDark ? "dark" : "light" },
-        "*"
-    );
-}
+    if(iframe && iframe.contentWindow){
+        iframe.contentWindow.postMessage(
+            { mode: isDark ? "dark" : "light" },
+            "*"
+        );
+    }
 }
 </script>
 
