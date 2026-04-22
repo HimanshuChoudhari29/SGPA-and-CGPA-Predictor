@@ -395,18 +395,6 @@ if(iframe && iframe.contentWindow){
     );
 }
 }
-window.addEventListener("load", () => {
-const iframe = document.querySelector("iframe");
-
-iframe.onload = () => {
-    const isDark = document.body.classList.contains("dark");
-
-    iframe.contentWindow.postMessage(
-        { mode: isDark ? "dark" : "light" },
-        "*"
-    );
-};
-});
 </script>
 
 </body>
