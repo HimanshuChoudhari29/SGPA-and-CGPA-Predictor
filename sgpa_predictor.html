@@ -153,12 +153,268 @@ border:1px solid #555;
 const itSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)","DELD (2 credits)","DELD Laboratory (2 credits)","Python Programming Laboratory (2 credits)","Discrete Mathematics (3 credits)","Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"];
 const itSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)","Principles of Programming Languages (3 credits)","Programming Laboratory (2 credits)","Data Communication (2 credits)","Web Development Laboratory (2 credits)","Language (2 credits)","Life Skills 2 (2 credits)"];
 
+const itSem3=[
+"Data Structures (2 credits)",
+"Data Structures Laboratory (2 credits)",
+"Computer Organization and Architecture (2 credits)",
+"Object-Oriented Programming (2 credits)",
+"Multidisciplinary Minor-1* (2 credits)",
+"Open Elective – Engineering Sciences (2 credits)",
+"Open Elective - Department Specific (2 credits)",
+"Business Studies for Engineers (2 credits)",
+"Universal Human Values (2 credits)",
+"Data Science Laboratory (2 credits)"
+];
+
+const itSem4=[
+"Computer Networks Technology (2 credits)",
+"Computer Networks Technology Laboratory (2 credits)",
+"Database Management System (2 credits)",
+"Database Management System Laboratory (2 credits)",
+"Multidisciplinary Minor-2* (2 credits)",
+"Open Elective- Mathematics (2 credits)",
+"Community Engagement Project (2 credits)",
+"Professional Development Training (2 credits)",
+"EEM-II (2 credits)",
+"Constitution of India (2 credits)"
+];
+
+const itSem5=[
+"Artificial Intelligence and Machine Learning (3 credits)",
+"Artificial Intelligence and Machine Learning Laboratory (1 credit)",
+"Design and Analysis of Algorithms (3 credits)",
+"Design and Analysis of Algorithms Laboratory (1 credit)",
+"Software Engineering and Modeling Laboratory (2 credit)",
+"Programme Elective Course (PEC) 1 (3 credits)",
+"Programme Elective Course (PEC) 1 Laboratory (1 credit)",
+"Multidisciplinary Minor (MDM) III (3 credits)",
+"Multidisciplinary Minor (MDM) IV (1 credit)",
+"Open Elective (OE) 4 (2 credits)"
+];
+
+const itSem6=[
+"Operating Systems (3 credits)",
+"Operating Systems Laboratory (1 credit)",
+"Automata Theory (3 credits)",
+"Seminar (1 credit)",
+"Programme Elective Course (PEC) 2 (3 credits)",
+"Programme Elective Course (PEC) 2 Laboratory (1 credit)",
+"Programme Elective Course (PEC) 3 (3 credits)",
+"Programme Elective Course (PEC) 3 Laboratory (1 credit)",
+"Multidisciplinary Minor (MDM) V (2 credits)",
+"DevOps Laboratory (2 credits)"
+];
+
+/* ✅ ONLY NEWLY ADDED */
+const itSem7=[
+"Cryptography & Networks Security",
+"Object Oriented Modeling and Design",
+"Cryptography & Networks Security Lab",
+"Object Oriented Modeling and Design Lab",
+"Elective V",
+"Elective VI",
+"Open Elective-V/MOOC",
+"Open Elective-VI"
+];
+
+const itSem8=[
+"Project",
+"Internship"
+];
+
+/*Computer Engineering */
 const ceSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)","Computer Programming & Problem Solving (3 credits)","Computer Programming & Problem Solving Laboratory 1 (2 credits)","Digital Electronics & Computer Organization (3 credits)","Digital Electronics Laboratory (1 credit)","Language (2 credits)","Life Skills 1 (2 credits)"];
 const ceSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)","Object Oriented Programming (3 credits)","Object Oriented Programming Laboratory (2 credits)","Discrete Mathematics (2 credits)","Computer Programming & Problem Solving Laboratory 2 (2 credits)","Indian Knowledge System (2 credits)","Life Skills 2 (2 credits)"];
+const ceSem3=[
+"Data Structures (3 credits)",
+"Data Structures Laboratory (2 credits)",
+"Microprocessor Architecture (2 credits)",
+"Microprocessor Architecture Laboratory (1 credit)",
+"OE - Engineering Sciences (2 credits)",
+"OE - Department Specific Open Elective (2 credits)",
+"Multidisciplinary Minor 1# (2 credits)",
+"Data Exploration and Visualization Laboratory (2 credits)",
+"EEM-I - Business studies for engineer (2 credits)",
+"Universal Human Values (2 credits)"
+];
+const ceSem4=[
+"Advanced Data Structures (2 credits)",
+"Advanced Data Structures Laboratory (1 credits)",
+"Database Management System (3 credits)",
+"Database Management System Laboratory (2 credit)",
+"OE – Applied Mathematics (2 credits)",
+"Multidisciplinary Minor 2# (2 credits)",
+"Community Engagement Project (CEP) Field Project (FP) (2 credits)",
+"EEM-II (2 credits)",
+"Professional Development Training * (2 credits)",
+"Constitution of India (2 credits)"
+];
+const ceSem5=[
+"Theory of Computation (3 credits)",
+"Technical Seminar (1 credit)",
+"Open Elective Course IV (2 credits)",
+"Multidisciplinary Minor III (3 credit)",
+"Multidisciplinary Minor III Laboratory (1 credit)",
+"Machine Learning (3 credits)",
+"Computer Networks & Security (3 credit)",
+"Program Elective Course I (4 credits)"
+];
+const ceSem6=[
+"Multidisciplinary Minor IV (2 credits)",
+"Full stack Development (2 credit)",
+"Operating System (3 credits)",
+"Design and Analysis of Algorithms (3 credit)",
+"Software Engineering (2 credits)",
+"Program Elective Course II (4 credit)",
+"Program Elective Course III (4 credits)"
+];
+const ceSem7=[
+"Professional Elective Course - V",
+"Professional Elective Course - VI",
+"Open Elective Course - V",
+"Open Elective Course - VI"
+];
+const ceSem8=[
+"Project",
+"Internship"
+];
 
-const subjectData={
-IT:{1:itSem1,2:itSem2},
-CE:{1:ceSem1,2:ceSem2}
+/*Computer Engineering Regional*/
+const cerSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Computer Programming & Problem Solving (3 credits)",
+"Digital Electronics & Computer Organization (3 credits)",
+"Digital Electronics Laboratory (1 credit)",
+"Computer Programming and Problem Solving Laboratory 1 (2 credits)",
+"Language (2 credits)","Life Skills 1 (2 credits)"];
+const cerSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Object Oriented Programming (3 credits)","Object Oriented Programming Laboratory (2 credits)",
+"Discrete Mathematics (2 credits)",
+"Computer Programming and Problem Solving Laboratory 2 (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 2 (2 credits)"
+];
+const cerSem3=["Data Structures (3 credits)",
+"Data Structures Laboratory (2 credits)",
+"Microprocessor Architecture (2 credits)",
+"Microprocessor Architecture Laboratory (1 credit)",
+"OE - Engineering Sciences (2 credits)",
+"OE - Department Specific Open Elective (2 credits)",
+"Multidisciplinary Minor 1# (2 credits)",
+"Data Exploration and Visualization Laboratory (2 credits)",
+"EEM-I - Business studies for engineer (2 credits)",
+"Universal Human Values (2 credits)"
+];
+const cerSem4=["Advanced Data Structures (2 credits)",
+"Advanced Data Structures Laboratory (1 credits)",
+"Database Management System (3 credits)",
+"Database Management System Laboratory (2 credit)",
+"OE – Applied Mathematics (2 credits)",
+"Multidisciplinary Minor 2# (2 credits)",
+"Community Engagement Project (CEP) Field Project (FP) (2 credits)",
+"EEM-II (2 credits)",
+"Professional Development Training * (2 credits)",
+"Constitution of India (2 credits)"
+];
+const cerSem5=["Theory of Computation (3 credits)",
+"Technical Seminar (1 credit)",
+"Open Elective Course IV (2 credits)",
+"Multidisciplinary Minor III (3 credit)",
+"Multidisciplinary Minor III Laboratory (1 credit)",
+"Machine Learning (3 credits)",
+"Computer Networks & Security (3 credit)",
+"Program Elective Course I (4 credits)"
+];
+const cerSem6=["Multidisciplinary Minor IV (2 credits)",
+"Full stack Development (2 credit)",
+"Operating System (3 credits)",
+"Design and Analysis of Algorithms (3 credit)",
+"Software Engineering (2 credits)",
+"Program Elective Course II (4 credit)",
+"Program Elective Course III (4 credits)"
+];
+const cerSem7=["Professional Elective Course - V",
+"Professional Elective Course - VI",
+"Open Elective Course - V",
+"Open Elective Course - VI"
+];
+const cerSem8=["Project",
+"Internship"
+];
+
+/*MEchanical Engineering*/
+const meSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)",
+"Engineering Mechanics (3 credits)","Manufacturing Technology (2 credits)",
+"Engineering Graphics Laboratory (2 credits)","Workshop Practice 1 (1 credit)",
+"Programming & Practice Solving Laboratory 1 (1 credit)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+const meSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Engineering Thermodynamics (3 credits)","Engineering Thermodynamics Laboratory (1 credit)",
+"Fundamentals of Electromechanical Systems (2 credits)",
+"Fundamentals of Electromechanical Systems Laboratory (1 credit)",
+"Workshop Practice 2 (1 credit)",
+"Programming & Practice Solving Laboratory 2 (1 credit)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+const meSem3=["Engineering Materials (2 credits)","Strength of Materials (3 credits)","Material Testing Laboratory (2 credits)","Strength of Materials Laboratory (1 credit)","Multidisciplinary Minor 1# (2 credits)","OE - Mathematics (2 credits)","OE - Department Specific (2 credits)","Business Studies for Engineers (2 credits)","Universal Human Values (2 credits)","Community Engagement Project (2 credits)"];
+const meSem4=["Fluid Mechanics (2 credits)","Theory of Machines (2 credits)","Fluid Mechanics Laboratory (2 credits)","Theory of Machines Laboratory (2 credits)","Multidisciplinary Minor 2# (2 credits)","OE - Engineering Sciences (2 credits)","Entrepreneurship and economics management (2 credits)","Professional Development Training (2 credits)","Constitution of India (2 credits)","Geometric Dimensioning & Tolerancing (1 credit)","Computer Aided Machine Drawing (1 credit)"];
+const meSem5=["Heat Transfer (3 credits)","Heat Transfer Laboratory (1 credit)","Machine Design (3 credits)","Machine Design Laboratory (1 credit)","Mechatronics (2 credits)","Mechatronics Laboratory (1 credit)","Program Elective 1 (3 credits)","Program Elective 1 Laboratory (1 credit)","Multidisciplinary Minor 3# (3 credits)","Multidisciplinary Minor 4 Laboratory (1 credit)","Open Elective 4 (2 credits)"];
+const meSem6=["Numerical Methods & Optimization (2 credits)","Numerical Methods & Optimization Laboratory (2 credits)","Metrology and Quality Control (2 credits)","Metrology and Quality Control Laboratory (2 credits)","Program Elective 2 (3 credits)","Program Elective 2 Laboratory (1 credit)","Program Elective 3 (3 credits)","Program Elective 3 Laboratory (1 credit)","Multidisciplinary Minor 5# (2 credits)","Workshop Practice 3 (1 credit)","CAE Laboratory (1 credit)"];
+const meSem7=["MEchanical Vibrations & Acoustics","MEchanical Vibrations & Acoustics Lab","Refrigeration & Air Conditioning","Refrigeration & Air Conditioning Lab","Professional Elective Course - V","Professional Elective Course - VI","Open Elective Course - V","Open Elective Course - VI"
+];
+const meSem8=["Project","Internship"];
+
+/*Civil Engineering*/
+const civilSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)",
+"Engineering Mechanics (3 credits)","Engineering Mechanics Laboratory (1 credit)",
+"Elements of Civil Engineering (3 credits)",
+"Building Drawing & Professional Practices in Civil Engineering Laboratory (2 credits)",
+"Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"
+];
+const civilSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)",
+"Physics (2 credits)","Physics Laboratory (2 credits)",
+"Engineering Geology & Materials in Construction (3 credits)",
+"Engineering Geology & Materials in Construction Laboratory (1 credit)",
+"Computer Programming for Problem Solving Laboratory (1 credit)",
+"Surveying (2 credits)","Professional Practices in Surveying (2 credits)",
+"Language (2 credits)","Life Skills 2 (2 credits)"
+];
+const civilSem3=["Building Planning & Construction (2 credits)","Building Planning & Construction Laboratory (1 credit)","Fluid Mechanics (2 credits)","Fluid Mechanics Laboratory (1 credit)","Srength of Materials (2 credits)","Multidisciplinary Minor 1# (2 credits)","OE - Mathematics (2 credits)","OE - Department Specific (2 credits)","Business Studies for Engineers (2 credits)","Universal Human Values (2 credits)","Community Engagement Project (2 credits)"];
+const civilSem4=["Soil Mechanics (2 credits)","Soil Mechanics Laboratory (1 credit)","Concrete Technology (2 credits)","Concrete Technology Laboratory (1 credit)","Structural Analysis 1 (2 credits)","Multidisciplinary Minor 2# (2 credits)","OE - Engineering Sciences (2 credits)","Techniques & Testing laboratory (2 credits)","Professional Development Training (2 credits)","EEM-II (2 credits)","Constitution of India (2 credits)"];
+const civilSem5=["Hydrology & Water Resources Engineering (2 credits)","Hydrology & Water Resources Engineering Laboratory (1 credit)","Transportation Engineering (2 credits)","Transportation Engineering Laboratory (1 credit)","Design of Steel Structures (2 credits)","Design of Steel Structures Laboratory (2 credits)","PEC 1 (3 credits)","PEC 1 Laboratory (1 credit)","Multidisciplinary Minor 3# (3 credits)","Multidisciplinary Minor 3 Laboratory (1 credit)","Open Elective (2 credits)"];
+const civilSem6=["Water & waste water engineering (2 credits)","Environment Engineering Laboratory (1 credit)","Design of Reinforced Concrete Structures (2 credits)","Design of Reinforced Concrete Structures Laboratory (1 credit)","Project Management and economics (2 credits)","PEC 2 (3 credits)","PEC 2 Laboratory (1 credit)","PEC 3 (3 credits)","PEC 3 Laboratory (1 credit)","Multidisciplinary Minor 4# (2 credits)","Skill EnhancementLab (2 credits)"];
+const civilSem7=["Estimation , Costing & Tenders (3 credits)","Construction Management (2 credits)","Professional Elective Course - V (2 credits)","Professional Elective Course - VI (3 credits)","Open Elective 5 (3 credits)","Open Elective 6 (3 credits)","Estimation , Costing & Tenders Laboratory (2 credits)","Design of Steel Structures Laboratory (4 credits)","Professional Elective laboratory 5 (1 credit)"];
+const civilSem8=["Project","Internship"];
+
+/*Electronics & Telecommunication Engineering*/
+const entcSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)","Basic Electrical Engineering (3 credits)","Basic Electrical Engineering Laboratory (2 credits)","Programming & Problem Solving Laboratory 1 (2 credits)","Engineering Graphics Laboratory (2 credits)","Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"];
+const entcSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)","Basic Electronics Engineering (3 credits)","Basic Electronics Engineering Laboratory (2 credits)","Programming & Problem Solving Laboratory 2 (2 credits)","Engineering Graphics Laboratory 2 (2 credits)","Language (2 credits)","Life Skills 2 (2 credits)"];
+const entcSem3=["Electronic Devices and Circuits (2 credits)","Electronic Devices and Circuits Laboratory (1 credit)","Network Analysis (2 credits)","Signals and Systems (2 credits)","Signals and Systems Laboratory (1 credit)","Multidisciplinary Minor 1# (2 credits)","OE - Mathematics (2 credits)","OE - Department Specific (2 credits)","Business Studies for Engineers (2 credits)","Universal Human Values (2 credits)","Community Engagement Project (2 credits)"];
+const entcSem4=["Control Systems (2 credits)","Microcontrollers (1 credit)","Microcontrollers Laboratory (2 credits)","Analog Integrated Circuits (2 credits)","Analog Integrated Circuits Laboratory (1 credit)","Multidisciplinary Minor 2# (2 credits)","OE - Engineering Sciences (2 credits)","Data Structures & Programming Laboratory (2 credits)","Professional Development Training (2 credits)","EEM-II (2 credits)","Constitution of India (2 credits)"];
+const entcSem5=["Control Systems (3 credits)","Digital Communication (3 credits)","Digital Communication Laboratory (1 credit)","Project Based Learning 5 (1 credit)","Program Elective 1 (2 credits)","Program Elective 1 Laboratory (1 credit)","Program Elective 2 (2 credits)","Program Elective 2 Laboratory (1 credit)","Open Elective 2 (3 credits)","Principles of Management (2 credits)"];
+const entcSem6=["Electromagnetics (3 credits)","Digital Signal Processing (3 credits)","Digital Signal Processing Laboratory (1 credit)","Project Based Learning 6 (1 credit)","Program Elective 3 (2 credits)","Program Elective 3 Laboratory (1 credit)","Program Elective 4 (2 credits)","Program Elective 4 Laboratory (1 credit)","Open Elective 3 (3 credits)","Open Elective 4 (3 credits)","HSMC Course 6 (2 credits)"];
+const entcSem7=["Computer Networks & Security(3 credits)","Computer Networks & Security Lab(1 credit)","VLSI Design(3 credits)","VLSI Design Lab(1 credit)","Program Elective 5(2 credits)","Program Elective 5 Lab(1 credit)","Program Elective 6(2 credits)","Program Elective 6 Lab(1 credit)","Open Elective 5(3 credits)","Open Elective 6(3 credits)"];
+const entcSem8=["Project(14 credits)","Internship(3 credits)"];
+
+/*CSE (AI & ML)*/
+const aimlSem1=["LAUC (2 credits)","LAUC Laboratory (1 credit)","Chemistry (2 credits)","Chemistry Laboratory (2 credits)","DELD (2 credits)","DELD Laboratory (2 credits)","Python Programming Laboratory (2 credits)","Discrete Mathematics (3 credits)","Indian Knowledge System (2 credits)","Life Skills 1 (2 credits)"];
+const aimlSem2=["Multivariate Calculus (2 credits)","Multivariate Calculus Laboratory (1 credit)","Physics (2 credits)","Physics Laboratory (2 credits)","Principles of Programming Languages (3 credits)","Programming Laboratory (2 credits)","Data Communication (2 credits)","Web Development Laboratory (2 credits)","Language (2 credits)","Life Skills 2 (2 credits)"];
+const aimlSem3=["Machine Learning (2 credits)","Data Structures & Algorithms (3 credits)","Data Structures Laboratory (2 credits)","Java Programming (1 credit)","Open Elective - Engineering Sciences (2 credits)","Open Elective - Department Specific (2 credits)","Community Engagement Project (2 credits)","Business Studies for Engineers (2 credits)","Universal Human Values (2 credits)","Multidisciplinary Minor 1# (2 credits)"];
+const aimlSem4=["Thoery of Computation (3 credits)","Database Management System (2 credits)","Database Management System Laboratory (2 credits)","Advanced Data Structure Laboratory (1 credit)","Open Elective - Mathematics (2 credits)","Full Stack Development 1 (2 credits)","EEM-2 (2 credits)","Professional Development Training (2 credits)","Constitution of India (2 credits)","Multidisciplinary Minor 2# (2 credits)"];
+const aimlSem5=["Artificial Intelligence (3 credits)","Computer Network (3 credits)","Artificial Intelligence Laboratory (2 credits)","Embedded AI Lab (2 credits)","Program Elective 1 (2 credits)","Program Elective 1 Laboratory (1 credit)","Program Elective 1 Seminar (1 credit)","Open Elective - Department Specific (2 credits)","Multidisciplinary Minor 3# (3 credits)","Multidisciplinary Minor 3 Laboratory (1 credit)"];
+const aimlSem6=["Design & Analysis of Algorithms (2 credits)","Computer Vision (2 credits)","Deep Learning (2 credits)","Computer Vision Lab (2 credits)","Professional Elective 2 (2 credits)","Professional Elective 2 Laboratory (1 credit)","Professional Elective 3 (2 credits)","Professional Elective 3 Laboratory (1 credit)","Professional Elective Project (2 credits)","Full Stack Development 2 (2 credits)","Multidisciplinary Minor 4# (2 credits)"];
+const aimlSem7=["Soft Computing & Optimizing Algorithms(3 credits)","Professional Elective 3(3 credits)","Professional Elective 4(3 credits)","Open Elective 2(3 credits)","Soft Computing & Optimization Algorithms Lab(2 credits)","Professional Elective 3 Lab(1 credit)","Professional Elective 4 Lab(1 credit)","Project Development 4 (4 credits)"];
+const aimlSem8=["Summer Industry Internship(3 credits)","Major Project(14 credits)"];
+
+subjectData={
+IT:{1:itSem1,2:itSem2,3:itSem3,4:itSem4,5:itSem5,6:itSem6,7:itSem7,8:itSem8},
+CE:{1:ceSem1,2:ceSem2,3:ceSem3,4:ceSem4,5:ceSem5,6:ceSem6,7:ceSem7,8:ceSem8},
+CER:{1:cerSem1,2:cerSem2,3:cerSem3,4:cerSem4,5:cerSem5,6:cerSem6,7:cerSem7,8:cerSem8},
+ME:{1:meSem1,2:meSem2,3:meSem3,4:meSem4,5:meSem5,6:meSem6,7:meSem7,8:meSem8},
+CEV:{1:civilSem1,2:civilSem2,3:civilSem3,4:civilSem4,5:civilSem5,6:civilSem6,7:civilSem7,8:civilSem8},
+ENTC:{1:entcSem1,2:entcSem2,3:entcSem3,4:entcSem4,5:entcSem5,6:entcSem6,7:entcSem7,8:entcSem8},
+AIML:{1:aimlSem1,2:aimlSem2,3:aimlSem3,4:aimlSem4,5:aimlSem5,6:aimlSem6,7:aimlSem7,8:aimlSem8}
 };
 
 function handleBranch(){
@@ -217,8 +473,8 @@ const semDisplayMap={
 4:[7,8]
 };
 
-if(sem1.checked) addSubjects(branch,1,semDisplayMap[year][0]);
-if(sem2.checked) addSubjects(branch,2,semDisplayMap[year][1]);
+if(sem1.checked) addSubjects(branch,semDisplayMap[year][0],semDisplayMap[year][0]);
+if(sem2.checked) addSubjects(branch,semDisplayMap[year][1],semDisplayMap[year][1]);
 
 if(sem1.checked || sem2.checked){
 subjectsContainer.style.display="block";
@@ -228,6 +484,8 @@ document.querySelector(".done-btn").style.display="block";
 }
 
 function addSubjects(branch,sem,actualSem){
+if(!subjectData[branch][sem]) return;
+
 subjectData[branch][sem].forEach(sub=>{
 subjectsContainer.innerHTML+=`
 <div class="subject">
@@ -341,13 +599,6 @@ let sgpa=(s1+s2)/(c1+c2);
 result.innerHTML=`SGPA: ${sgpa.toFixed(2)}`;
 }
 }
-window.addEventListener("message", (event) => {
-    if(event.data.mode === "dark"){
-        document.body.classList.add("dark");
-    } else {
-        document.body.classList.remove("dark");
-    }
-});
 </script>
 
 </body>
