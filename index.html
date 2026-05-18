@@ -37,7 +37,55 @@ border:3px solid #fff;
 }
 
 header{background:linear-gradient(135deg,#2c3e50,#1a2530);color:#fff;padding:15px 0}
-.header-container{max-width:1200px;margin:auto;display:flex;align-items:center;gap:25px}
+.header-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+}
+.logo{
+width:80px;
+height:80px;
+object-fit:contain;
+background:white;
+padding:4px;
+border-radius:10px;
+}
+
+.left-header{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.pccoe-text{
+display:flex;
+flex-direction:column;
+}
+
+.main-text{
+font-size:20px;
+font-weight:bold;
+color:white;
+}
+
+.sub-text{
+font-size:14px;
+color:#ddd;
+}
+
+.right-header{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.right-header h2{
+font-size:24px;
+color:white;
+}
 
 .toggle-btn{
 margin-left:auto;
@@ -102,10 +150,32 @@ font-size:15px;
 <body>
 
 <header>
+
 <div class="header-container">
-<button class="toggle-btn" onclick="toggleMode()">🌙</button>
-<h2>Virtual Labs - SGPA & CGPA Predictor</h2>
+
+<!-- LEFT SIDE -->
+<div class="left-header">
+
+<img src="images/pccoe.png" class="logo">
+
+<div class="pccoe-text">
+<div class="main-text">APPLIED SCIENCES & HUMANITIES</div>
+<div class="sub-text">Pimpri Chinchwad College of Engineering</div>
 </div>
+
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="right-header">
+
+<h2>Virtual Labs - SGPA & CGPA Predictor</h2>
+
+<button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+</div>
+
+</div>
+
 </header>
 
 <div class="tab-bar">
